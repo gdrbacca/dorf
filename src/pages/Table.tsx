@@ -36,7 +36,7 @@ interface AtletasResponse {
 
 export function MainTable() {
   const [openAdd, setOpenAdd] = useState(false)
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
 
   const urlFilter = searchParams.get('filter') ?? ''
   const perPage = searchParams.get('perPage') ?? 10 // _limit
