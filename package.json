@@ -2,7 +2,7 @@
   "name": "dorf",
   "private": true,
   "version": "0.0.0",
-  "homepage": "dorf/",
+  "homepage": "https://gdrbacca.github.io/dorf/",
   "type": "module",
   "scripts": {
     "dev": "vite",
