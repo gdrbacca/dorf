@@ -1,0 +1,153 @@
+-Tailwind------------
+
+pnpm add -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+no index.css do src precis constar:
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+para tirar arrows de input number, no index.css:
+    @layer base {
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin:0;
+        }
+    }
+
+para fazer botão ficar 'carregando' no submit, usando fieldset por volta do form:
+        setSaving(true) antes de chamar metodo de fetch
+        <fieldset disabled={saving} className="group">
+            <form>
+                <button>
+                    <span classname="group-disabled:opacity-0">
+                    <icon classname="opacity-0 group-disabled:opacity-100"/>
+                </button>
+        
+        setSaving(false) depois do fetch
+
+-Shadcn--------------
+
+# (so you can import "path" without error)
+pnpm i -D @types/node
+
+pnpm install shadcn-ui@latest
+pnpm dlx shadcn-ui@latest init
+
+# caso necessário, alterar de @/components para src/components(/lib) na pergunta, 
+# mas depois usando @/... nas importações
+
+pnpm dlx shadcn-ui@latest add button
+
+
+-Eslint --------------
+
+pnpm i eslint @rocketseat/eslint-config -D
+
+(se necessário, para migrar do .eslintrc.json) npx @eslint/migrate-config .eslintrc.json
+
+eslint.config.mjs, coloca:
+    export default [
+        ...compat.extends('@rocketseat/eslint-config/react'),
+        { files: ['src/**/*'] },
+    ]
+
+(para ordenar imports)
+pnpm i -D eslint-plugin-simple-import-sort
+
+eslint.config.mjs, coloca:
+
+    ...compat.plugins('simple-import-sort'),
+
+    {
+        files: ['src/**/*'],
+        rules: {
+            'simple-import-sort/imports': 'error',
+        },
+    },
+
+-Prettier-------------
+
+pnpm i -D prettier-plugin-tailwindcss
+
+versão 0.6.+
+>cria .prettierrc, e coloca
+
+    {
+        "plugins": ["prettier-plugin-tailwindcss"]
+    }
+
+
+-React router dom---------------
+
+pnpm i react-router-dom
+
+pnpm i localforage match-sorter sort-by
+
+cria um routes.tsx no src e coloca:
+
+    export const router: ReturnType<typeof createBrowserRouter> =
+        createBrowserRouter([
+            {
+                path: '/',
+                element: <AppLayout />,
+                children: [{ path: '/', element: <Componente /> }],
+            },
+        ])
+
+dentro de pages, criar a pasta _layouts e ali colocar os layouts padrão, 
+components serão subrotas no children
+
+no App.tsx da return <RouterProvider router={router} /> 
+
+
+-SEO(react-helmet-async)------------------
+
+pnpm i react-helmet-async
+
+no App.tsx, colocar por volta: 
+    <HelmetProvider>
+      <Helmet titleTemplate="%s | nomeapp" />
+
+
+-Radix Dialog--------------------
+
+<Root>
+    <Trigger css="fixed inset-0 bg-black/70" />
+
+    <Portal>
+        <Overlay />
+        <Content css="fixed top-50% left-50% translate(50%, 50%) ou -translate-xy-1/2">
+
+        <Content/>
+    <Portal/>
+<Root/>
+
+-Pagination---------------------
+
+•Estrutura visual: 
+	<div>
+		div > 10 de 15 itens
+		<div>
+			div > select de itens por pagina
+			div > pagina 1 de 2
+			div > 4 botoes de passar pagina
+		</div>
+	</div>
+
+
+•Atributos:
+	parametros: {page, pages, perPage, items}
+
+	useSearchParams()
+
+	firstPage() => set(page, 1)
+	lastPage() => set(page, pages)
+
+	nextPage() => if (page + 1 <= pages) set(page, page+1)
+	previousPage() => if (page - 1 >= 0) set(page, page-1)
+
+	selectPerPage(value: string) => set(perPage, value)  (onChange do select)
+

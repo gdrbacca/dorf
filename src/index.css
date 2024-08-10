@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin:0;
+    }
+}
+
+@font-face {
+    font-family: neon;
+    src: url(/font/NEON\ GLOW-Light.otf);
+}
+
+.neon-text {
+    font-family: neon;
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 
+    .1vw 0vw .25vw #fff, .2vw 0vw .25vw #fff, .4vw 0vw .25vw #fff, 
+
+    .1vw 0vw   0vw #655BFE, .2vw 0vw   0vw #655BFE, .4vw 0vw   0vw #655BFE,
+    .1vw 0vw  .1vw #655BFE, .2vw 0vw  .1vw #655BFE, .4vw 0vw  .1vw #655BFE,
+    .1vw 0vw   2vw #655BFE, .2vw 0vw   2vw #655BFE, .4vw 0vw   2vw #655BFE, 
+
+    .1vw 0vw   1vw #3F33FF, .2vw 0vw   1vw #3F33FF, .4vw 0vw   5vw #3F33FF, 
+    .1vw 0vw   5vw #3F33FF, .2vw 0vw  20vw #3F33FF, .4vw 0vw  10vw #3F33FF,
+    .1vw 0vw  10vw #3F33FF, .2vw 0vw  30vw #3F33FF, .4vw 0vw  10vw #3F33FF;
+}
+
