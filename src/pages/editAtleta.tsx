@@ -19,7 +19,6 @@ interface EditAtletaProps {
   kg23_2b: number
   posicao23_2b: number
   rx: boolean
-  // setOpen: () => void
 }
 
 export function EditAtleta(props: EditAtletaProps) {
