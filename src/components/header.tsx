@@ -5,7 +5,7 @@ export function Header() {
         <div className="flex h-full w-72 items-center justify-center bg-fundoGradePisar bg-cover object-fill shadow-[inset_10px_15px_40px_4px_rgba(0,0,0,0.4)]">
           <a href="">
             <img
-              src="/logoTitulo-1.png"
+              src="logoTitulo-1.png"
               alt="logoDorf"
               className="w-56 rounded-2xl p-1"
             />

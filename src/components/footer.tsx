@@ -25,13 +25,13 @@ export function Footer() {
           </div>
           <div className="mt-8 flex h-full flex-col items-center gap-3 leading-tight md:mt-0 md:flex-row">
             <a href="#">
-              <img src="/insta.svg" alt="Instagram" className="size-8" />
+              <img src="insta.svg" alt="Instagram" className="size-8" />
             </a>
             <a href="#">
-              <img src="/face.svg" alt="Facebook" className="size-8" />
+              <img src="face.svg" alt="Facebook" className="size-8" />
             </a>
             <a href="#">
-              <img src="/x.svg" alt="X" className="size-8" />
+              <img src="x.svg" alt="X" className="size-8" />
             </a>
           </div>
         </div>
