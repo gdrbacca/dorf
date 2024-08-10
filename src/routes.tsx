@@ -8,20 +8,23 @@ import { Login } from './pages/Login'
 import { MainTable } from './pages/Table'
 
 export const router: ReturnType<typeof createBrowserRouter> =
-  createBrowserRouter([
-    {
-      path: '/',
-      element: <AppLayout />,
+  createBrowserRouter(
+    [
+      {
+        path: '/',
+        element: <AppLayout />,
 
-      children: [
-        { path: '/', element: <MainTable /> },
-        { path: '/home', element: <Home /> },
-      ],
-    },
-    {
-      path: '/login',
-      element: <LoginLayout />,
+        children: [
+          { path: '/', element: <MainTable /> },
+          { path: '/home', element: <Home /> },
+        ],
+      },
+      {
+        path: '/login',
+        element: <LoginLayout />,
 
-      children: [{ path: '/login', element: <Login /> }],
-    },
-  ])
+        children: [{ path: '/login', element: <Login /> }],
+      },
+    ],
+    { basename: import.meta.env.DEV ? '/' : '/dorf/' },
+  )
