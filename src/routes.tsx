@@ -1,4 +1,4 @@
-import { createBrowserRouter, createHashRouter } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 
 import { AppLayout } from './_layouts/app'
 import { LoginLayout } from './_layouts/loginLayout'
@@ -7,23 +7,24 @@ import { Login } from './pages/Login'
 // import { Home } from './pages/Home'
 import { MainTable } from './pages/Table'
 
-export const router: ReturnType<typeof createHashRouter> = createHashRouter(
-  [
-    {
-      path: '/',
-      element: <AppLayout />,
+export const router: ReturnType<typeof createBrowserRouter> =
+  createBrowserRouter(
+    [
+      {
+        path: '/',
+        element: <AppLayout />,
 
-      children: [
-        { path: '/', element: <MainTable /> },
-        { path: 'home', element: <Home /> },
-      ],
-    },
-    {
-      path: '/login',
-      element: <LoginLayout />,
+        children: [
+          { path: '/', element: <MainTable /> },
+          { path: 'home', element: <Home /> },
+        ],
+      },
+      {
+        path: '/login',
+        element: <LoginLayout />,
 
-      children: [{ path: '/login', element: <Login /> }],
-    },
-  ],
-  { basename: import.meta.env.DEV ? '/' : '/dorf/' },
-)
+        children: [{ path: '/login', element: <Login /> }],
+      },
+    ],
+    { basename: import.meta.env.DEV ? '/' : '/dorf/' },
+  )
